@@ -9,6 +9,14 @@ class Post extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+    'title',
+    'content',
+    'teacher',
+    'atmosphere',
+    'career',
+];
+    
     public function getPaginateByLimit(int $limit_count = 10)
     {
         return $this->paginate($limit_count);

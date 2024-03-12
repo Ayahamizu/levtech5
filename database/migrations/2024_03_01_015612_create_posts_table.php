@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('faculty_id')->constrained();
-            $table->foreignId('major_id')->constrained();
-            $table->foreignId('seminar_id')->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('faculty_id')->nullable()->constrained();
+            $table->foreignId('major_id')->nullable()->constrained();
+            $table->foreignId('seminar_id')->nullable()->constrained();
             $table->text('content')->nullable();
             $table->text('teacher')->nullable();
-            $table->text('career')->nullable();
             $table->boolean('Isgroup')->nullable();
             $table->boolean('Iscareer')->nullable();
             $table->timestamps();

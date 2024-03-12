@@ -11,10 +11,13 @@
     <body>
         <h1>法政大学</h1>
         <p>検索結果</p>
+        <a href='/posts/create'>create</a>
         <div class='posts'>
             @foreach ($posts as $post)
             <div class='post'>
-                <h2 class='seminar'>{{ $post->seminar }}</h2>
+                <h2 class='seminar'>
+                    <a href="/posts/{{ $post->id }}">{{ $post->seminar }}</a>
+                    </h2>
             </div>
             @endforeach
         </div>

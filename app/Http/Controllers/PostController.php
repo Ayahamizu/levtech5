@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Post;
+use App\Models\Category;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
@@ -17,14 +18,17 @@ class PostController extends Controller
     {
         return view('posts.show')->with(['post' => $post]);
     }
-    public function create()
+    public function create(Category $category)
 {
-    return view('posts.create');
+    $categories = $category->get();
+    return view('posts.create')->with(['categories' => $categories]);
 }
     public function store(Post $post, PostRequest $request)
 {
-    $input = $request['post'];
-    $post->fill($input)->save();
-    return redirect('/posts/' . $post->id);
+    $input_post = $request['post'];
+    $input_categories = $request->categories_array;
+    $post->fill($input_post)->save();
+    $post->categories()->attach($input_categories);
+    return redirect('/posts/'.$post->id);
 }
 }

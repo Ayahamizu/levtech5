@@ -17,6 +17,10 @@ class Post extends Model
     'career',
 ];
     
+    public function categories(){
+        return $this->belongsToMany(Category::class);
+    }
+    
     public function getPaginateByLimit(int $limit_count = 10)
     {
         return $this->paginate($limit_count);

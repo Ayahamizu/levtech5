@@ -8,6 +8,7 @@
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     </head>
+    <x-app-layout>
     <body>
         <h1>法政大学</h1>
         <p>検索結果</p>
@@ -24,5 +25,7 @@
         <div class='paginate'>
             {{ $posts->links() }}
         </div>
+        {{ Auth::user()->name }}
     </body>
+    </x-app-layout>
 </html>

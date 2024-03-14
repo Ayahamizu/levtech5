@@ -15,12 +15,16 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->foreignId('user_id')->nullable()->constrained();
             $table->foreignId('faculty_id')->nullable()->constrained();
             $table->foreignId('major_id')->nullable()->constrained();
             $table->foreignId('seminar_id')->nullable()->constrained();
             $table->text('content')->nullable();
             $table->text('teacher')->nullable();
+            $table->string('atmosphere')->nullable();
+            $table->string('career')->nullable();
+            $table->boolean('Isnumber')->nullable();
             $table->boolean('Isgroup')->nullable();
             $table->boolean('Iscareer')->nullable();
             $table->timestamps();

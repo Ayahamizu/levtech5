@@ -11,17 +11,41 @@
 
         <!-- Styles -->
     </head>
+    <x-app-layout>
     <body>
-        <h1 class="seminar">
-            {{ $post->seminar }}
-        </h1>
+        <div class="title">
+            <p>ゼミ名</p>
+            <p>{{ $post->title }}</p>
+        </div>
         <div class="content">
             <div class="content__post">
-                <p>{{ $post->body }}</p>
+                 <p>内容</p>
+                <p>{{ $post->content }}</p>
+                {{ $post->Isgroup }}
             </div>
         </div>
+        <div class="teacher">
+             <p>先生</p>
+            <p>{{ $post->teacher }}</p>
+        </div>
+        <div class="atmosphere">
+             <p>雰囲気</p>
+            <p>{{ $post->atmosphere }}</p>
+        </div>
+        <div class="career">
+             <p>就職先、強い業界</p>
+            <p>{{ $post->career }}</p>
+        </div>
+        @if($post->Isgroup == 1)
+        <p>大人数</p>
+        @endif
+        
+        @if($post->Iscareer == 1)
+        <p>就職に強い</p>
+        @endif
         <div class="footer">
             <a href="/">戻る</a>
         </div>
     </body>
+    </x-app-layout>
 </html>

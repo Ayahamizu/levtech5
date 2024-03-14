@@ -16,28 +16,40 @@ class PostSeeder extends Seeder
     public function run()
     {
         DB::table('posts')->insert([
+            'title' => 'test title',
             'content' => 'test content',
             'teacher' => 'test teacher',
+            'atmosphere' => 'good',
+            'career' => 'career1',
             'seminar_id' =>1,
-             'iscareer' => true,
+            'isnumber' => true,
+            'iscareer' => true,
             'isgroup' => true,
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('posts')->insert([
+            'title' => 'test title2',
             'content' => 'test content2',
             'teacher' => 'test teacher2',
+            'atmosphere' => 'good',
+            'career' => 'career1',
             'seminar_id' =>1,
-             'iscareer' => true,
+            'isnumber' => true,
+            'iscareer' => true,
             'isgroup' => true,
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('posts')->insert([
+            'title' => 'test title',
             'content' => 'test content2',
             'teacher' => 'test teacher2',
+            'atmosphere' => 'good',
+            'career' => 'career1',
             'seminar_id' =>2,
-             'iscareer' => true,
+            'isnumber' => false,
+            'iscareer' => true,
             'isgroup' => true,
             'created_at' => now(),
             'updated_at' => now()

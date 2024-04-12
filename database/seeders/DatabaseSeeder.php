@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             SeminarSeeder::class,
-            PostSeeder::class,
             FacultySeeder::class,
             MajorSeeder::class,
             CategorySeeder::class,
+            PostSeeder::class,
                    ]);
         
         // \App\Models\User::factory(10)->create();

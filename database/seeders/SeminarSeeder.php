@@ -17,9 +17,13 @@ class SeminarSeeder extends Seeder
     {
         DB::table('seminars')->insert([
             'name' => 'test seminar',
+            'faculty_id' => 1,
+            'major_id' => 1,
         ]);
         DB::table('seminars')->insert([
             'name' => 'test seminar2',
+            'faculty_id' => 1,
+            'major_id' => 2,
         ]);
     }
 }

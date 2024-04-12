@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,6 +23,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
 Route::controller(PostController::class)->middleware(['auth'])->group(function () {
     Route::get('/', 'index') ->name('index');
     Route::get('/posts/create', 'create')->name('create');
@@ -29,6 +32,12 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function (
     Route::post('/posts', 'store')->name('store');
 });
 Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
+
+Route::get('/posts/like/{post}', [LikeController::class, 'like'])->name('like');
+Route::get('/posts/unlike/{post}', [LikeController::class, 'unlike'])->name('unlike');
+
+Route::get('/index', [LikeController::class, 'index'])->name('posts.show');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

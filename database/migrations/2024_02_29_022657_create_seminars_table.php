@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('seminars', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('faculty_id')->unsigned();
+             $table->integer('major_id')->unsigned();
         });
     }
 
